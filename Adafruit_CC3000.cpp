@@ -291,7 +291,10 @@ bool Adafruit_CC3000::begin(uint8_t patchReq, bool useSmartConfigData, const cha
     // wlan_ioctl_set_connection_policy(0, 1, 0)
 
     // Use Profiles - the CC3000 device tries to connect to an AP from profiles:
-    wlan_ioctl_set_connection_policy(0, 0, 1);
+    // wlan_ioctl_set_connection_policy(0, 0, 1);
+	
+    // Try last AP or use Profiles - http://software-dl.ti.com/ecs/simplelink/cc3000/public/doxygen_API/v1.11.1/html/d0/d5e/group__wlan__api.html#ga4788183244b2eef54044fdcbbbff826a
+    wlan_ioctl_set_connection_policy(0, 1, 1);
   }
 
   CHECK_SUCCESS(
